@@ -135,6 +135,10 @@ function formatDateToMonthDay(dateStr) {
   return `${months[parseInt(month) - 1]} ${parseInt(day)}`;
 }
 
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
 app.get('/api/activity', async (req, res) => {
   try {
     require('dotenv').config({ override: true });
